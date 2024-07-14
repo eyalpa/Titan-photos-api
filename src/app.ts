@@ -6,6 +6,7 @@ import http from 'http';
 import MongoDBConnector from './dal/mongodb';
 import routes from './routes/index';
 import errorHandler from './middlewares/errorHandler';
+import logger from './middlewares/logging';
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ const server = http.createServer(app);
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(logger); // Use the logger middleware
+
 
 // Connect to MongoDB
 const dbConnector = MongoDBConnector.getInstance();
