@@ -20,7 +20,7 @@ This project is a Photo API that provides endpoints to fetch random photos from 
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/yourusername/photo-api.git
+    git clone https://github.com/eyalpa/photo-api.git
     cd photo-api
     ```
 
