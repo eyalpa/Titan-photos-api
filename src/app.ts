@@ -7,6 +7,7 @@ import MongoDBConnector from './dal/mongodb';
 import routes from './routes/index';
 import errorHandler from './middlewares/errorHandler';
 import logger from './middlewares/logging';
+import HostawayClient from './services/hostawayClient';
 
 dotenv.config();
 
@@ -33,4 +34,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  //This will create new webhook
+  const hostawayClient = new HostawayClient();
+  hostawayClient.registerWebhook('User','Pass');
 });

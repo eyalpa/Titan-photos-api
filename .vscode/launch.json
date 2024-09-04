@@ -6,9 +6,18 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/src/app.ts",
+      "program": "${workspaceFolder}/src/app.ts", // Ensure this points to your main TypeScript file
       "runtimeArgs": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "envFile": "${workspaceFolder}/.env", // Load environment variables from .env file
+      "sourceMaps": true, // Enable source maps to map compiled JS back to TS
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "cwd": "${workspaceFolder}", // Set the working directory
+      "console": "integratedTerminal", // Use the integrated terminal for output
+      "internalConsoleOptions": "neverOpen" // Keep the console window closed
     },
     {
       "type": "node",
